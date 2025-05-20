@@ -10,5 +10,17 @@
       "numer_telefonu": "501-789-123"
     },
     "akcja_oczekiwana": "korekta faktury i kontakt telefoniczny"
+  },
+  {
+    "typ_zgłoszenia": "podwójna płatność",
+    "data_faktury": "2024-06-008",
+    "numer_faktury": "FA/06/008",
+    "opis_problemu": "Dwukrotna płatność za tę samą usługę dla faktury z 2 czerwca 2024 roku",
+    "klient": {
+      "imię_i_nazwisko": "Anna Romanowicz",
+      "firma": "brak",
+      "numer_telefonu": "609-000-444"
+    },
+    "akcja_oczekiwana": "wyjaśnienie"
   }
 ]
