@@ -1,0 +1,14 @@
+[
+  {
+    "typ_zgłoszenia": "błąd w rozliczeniu abonamentu",
+    "data_faktury": "2023-05-06",
+    "numer_faktury": "FV/05/2023/199",
+    "opis_problemu": "Nieliczona odpowiednia stawka abonamentu dla konta Premium, powinno być konto Standard.",
+    "klient": {
+      "imię_i_nazwisko": "Marek Nowicki",
+      "firma": "Nowicki Tech",
+      "numer_telefonu": "501-789-123"
+    },
+    "akcja_oczekiwana": "korekta faktury i kontakt telefoniczny"
+  }
+]
