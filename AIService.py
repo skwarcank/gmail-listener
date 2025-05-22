@@ -12,10 +12,19 @@ class AIService:
 
     def ask_llm(self, subject, body):
         prompt = f"""
-Na podstawie poniższego maila wyodrębnij dane w dokładnie takim formacie JSON jak poniżej.
-Wypełnij wszystkie pola, nawet jeśli trzeba je oszacować z treści. Używaj podwójnych cudzysłowów i nie dodawaj nic poza JSON-em.
+Na podstawie poniższego maila wyodrębnij dane w formacie JSON. 
+Użyj dokładnie i wyłącznie poniższych kluczy (nie zmieniaj ich nazw, nie dodawaj nowych, nie usuwaj żadnego):
+- typ_zgłoszenia
+- data_faktury
+- numer_faktury
+- opis_problemu
+- klient (zagnieżdżony obiekt z kluczami: imię_i_nazwisko, firma, numer_telefonu)
+- akcja_oczekiwana
+Zachowaj spójność logiczną.
 
-Format wzorcowy:
+Zwróć tylko czysty JSON, bez komentarzy i tekstu opisowego. Wszystkie klucze muszą być dokładnie takie jak w przykładzie poniżej (z polskimi znakami). Jeśli nie masz danych, wpisz pusty string.
+
+Przykład:
 {{
   "typ_zgłoszenia": "problem z fakturą",
   "data_faktury": "2023-04-14",

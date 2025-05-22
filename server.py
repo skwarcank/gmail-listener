@@ -4,6 +4,7 @@ import os
 import traceback
 from GmailService import GmailService
 from AIService import AIService
+from DBService import DBService
 
 def append_to_json_file(data, filename="output.json"):
     if os.path.exists(filename):
@@ -23,6 +24,7 @@ def append_to_json_file(data, filename="output.json"):
 def main():
     gmail_service = GmailService()
     ai_service = AIService()
+    db_service = DBService()  # Używa zmiennych środowiskowych
     processed_ids = set()
     start_time = int(time.time() * 1000)
     print("📬 Oczekiwanie na nowe maile (tylko po starcie skryptu)...")
@@ -37,6 +39,7 @@ def main():
                     if data:
                         append_to_json_file(data)
                         print("✅ Zapisano do output.json")
+                        db_service.insert_row(data)  # <-- dodaj to
                 except Exception as e:
                     print(f"❌ Błąd AIService: {e}")
                     traceback.print_exc()
