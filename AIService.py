@@ -1,8 +1,9 @@
-import os
-import json
+import os 
+import json 
 import re
 from openai import OpenAI
 
+#inicjalizacja klienta OpenAI
 client = OpenAI(
     api_key=os.getenv("OPENAI_API_KEY"),
     base_url="https://openrouter.ai/api/v1"
@@ -35,16 +36,16 @@ Treść:
 \"\"\"
 """
     try:
-        response = client.chat.completions.create(
+        response = client.chat.completions.create(              #wysłanie zapytania do LLM
             model="mistralai/mistral-7b-instruct",
             messages=[{"role": "user", "content": prompt}]
         )
-        content = response.choices[0].message.content.strip()
-        match = re.search(r"\{.*\}", content, re.DOTALL)
+        content = response.choices[0].message.content.strip()   #Przetwarzanie odpowiedzi
+        match = re.search(r"\{.*\}", content, re.DOTALL)        #Dopasowanie odpowiedzi do wzorca JSON
         if match:
             return json.loads(match.group(0))
         else:
             print("❌ Nie udało się znaleźć poprawnego bloku JSON")
-    except Exception as e:
+    except Exception as e:                                      #obsługa błędów
         print("❌ Błąd LLM:", e)
     return {}
