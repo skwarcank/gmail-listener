@@ -4,3 +4,4 @@ output.json
 __pycache__/
 *.pyc
 .aider*
+.env

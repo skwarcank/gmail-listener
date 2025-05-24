@@ -1,0 +1,6 @@
+token.json
+credentials.json
+output.json
+__pycache__/
+*.pyc
+.aider*

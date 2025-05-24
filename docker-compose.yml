@@ -1,0 +1,12 @@
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: deploy/server/Dockerfile
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    container_name: mymailbot
+    restart: unless-stopped
